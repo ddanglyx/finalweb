@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Guitar Infographic — Interactive Anatomy, Types & Sounds</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<header>
+<h1>Guitar Infographic</h1>
+<nav>
+  <a href="#parts">Parts</a>
+  <a href="#types">Types</a>
+  <a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- Parts Section -->
+<section id="parts">
+
+<h2>Parts of a Guitar</h2>
+<div class="parts-toolbar">
+<button id="favAdd" class="btn">☆ Favorite</button>
+<button id="favShow" class="btn">Show Favorites</button>
+<button id="overlayToggle" class="btn">Toggle Labels</button>
+  <input id="partSearch" type="text" placeholder="Search a part (e.g., bridge, pickups, jack)" aria-label="Search guitar parts">
+  <button id="partSearchBtn" class="btn">Search</button>
+</div>
+<p class="hint">Click a marker to see details.</p>
+
+<div id="partsWrap">
+<svg id="partsSvg" class="parts-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+<img id="partsImg" src="images/9236091102_fcs_ins_frt_1_rr.png" alt="">
+</div>
+<div id="hiddenControls">
+<button id="editPins">Edit</button>
+<button id="savePins" disabled>Save</button>
+<button id="resetPins">Reset</button>
+</div>
+
+<section id="types">
+  <h2>Guitar Types</h2>
+
+  <div class="cards expanded-cards">
+
+    <div class="card">
+      <a href="https://www.fender.com/collections/electric-guitars/stratocaster" target="_blank">
+        <img src="images/9236091102_fcs_ins_frt_1_rr.png" alt="Stratocaster" class="type-img">
+      </a>
+      <h3>Stratocaster</h3>
+      <p>Bright, articulate, and versatile.</p>
+    </div>
+
+    <div class="card">
+      <a href="https://www.fender.com/collections/electric-guitars/telecaster" target="_blank">
+        <img src="images/9236091066_fcs_ins_frt_1_rr.png" alt="Telecaster" class="type-img">
+      </a>
+      <h3>Telecaster</h3>
+      <p>Crisp, twangy tones with excellent note clarity.</p>
+    </div>
+
+    <div class="card">
+      <a href="https://www.fender.com/collections/electric-guitars/jazzmaster" target="_blank">
+        <img src="images/0110112803_gtr_frt_001_rr__50025.webp" alt="Jazzmaster" class="type-img">
+      </a>
+      <h3>Jazzmaster</h3>
+      <p>Warm and mellow with offset ergonomics.</p>
+    </div>
+
+  </div>
+
+<section id="setupCalc">
+  <h2>Setup Calculators</h2>
+
+  <div class="setup-card">
+    <h3>Stratocaster Setup</h3>
+    <label>String Gauge (e.g., 9, 10, 11): <input id="stratGauge" type="number"></label>
+    <button id="stratCalcBtn" class="btn">Calculate</button>
+    <div id="stratResult"></div>
+  </div>
+
+  <div class="setup-card">
+    <h3>Telecaster Setup</h3>
+    <label>String Gauge (e.g., 9, 10, 11): <input id="teleGauge" type="number"></label>
+    <button id="teleCalcBtn" class="btn">Calculate</button>
+    <div id="teleResult"></div>
+  </div>
+
+  <div class="setup-card">
+    <h3>Jazzmaster Setup</h3>
+    <label>String Gauge (e.g., 9, 10, 11): <input id="jazzGauge" type="number"></label>
+    <button id="jazzCalcBtn" class="btn">Calculate</button>
+    <div id="jazzResult"></div>
+  </div>
+</section>
+
+
+</section>
+
+<section id="neckProfiles">
+  <h2>Neck Profiles</h2>
+  <div class="neck-controls">
+    <label><input type="radio" name="neck" value="c" checked> C-Shape (Modern)</label>
+    <label><input type="radio" name="neck" value="v"> V-Shape (Vintage)</label>
+    <label><input type="radio" name="neck" value="u"> U-Shape (Chunky)</label>
+  </div>
+  <svg id="neckSvg" width="250" height="100"></svg>
+  <p class="neck-note">Different neck profiles change how the guitar feels in your hand.</p>
+</section>
+
+<section id="noteTrainer">
+  <h2>Fretboard Note Trainer</h2>
+  <p class="note-hint">Click any position on the fretboard to reveal the note.</p>
+
+  <div id="fretWrapper">
+    <img id="fretImg" src="images/fretboard.png" alt="Fretboard">
+    <div id="fretOverlay"></div>
+  </div>
+  <div id="noteDisplay"></div>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<input type="text" placeholder="Name">
+<input type="email" placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send</button>
+</section>
+
+
+<!-- Backend-integrated sections for Final Project -->
+
+<section id="auth">
+  <h2>Account</h2>
+  <p id="authStatus">Not signed in</p>
+
+  <div class="auth-forms">
+    <form id="signupForm">
+      <h3>Sign Up</h3>
+      <input type="text" id="signupName" placeholder="Name" required>
+      <input type="email" id="signupEmail" placeholder="Email" required>
+      <input type="password" id="signupPassword" placeholder="Password" required>
+      <button type="submit">Create Account</button>
+    </form>
+
+    <form id="loginForm">
+      <h3>Log In</h3>
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPassword" placeholder="Password" required>
+      <button type="submit">Log In</button>
+    </form>
+  </div>
+
+  <button id="logoutBtn" type="button" hidden>Log Out</button>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <input id="contactName" type="text" placeholder="Name">
+  <input id="contactEmail" type="email" placeholder="Email">
+  <textarea id="contactMessage" placeholder="Message"></textarea>
+  <button id="contactSendBtn" type="button">Send</button>
+  <p id="contactStatus"></p>
+</section>
+
+<section id="myMessages" data-requires-auth>
+  <h2>My Messages (from backend)</h2>
+  <button id="loadMessagesBtn" type="button">Load My Messages</button>
+  <ul id="messagesList"></ul>
+</section>
+
+<section id="backendSearch" data-requires-auth>
+  <h2>Guitar Library (Backend Search)</h2>
+  <div class="search-row">
+    <input id="backendSearchInput" type="text" placeholder="Search guitar name (exact match)">
+    <button id="backendSearchBtn" type="button">Search</button>
+  </div>
+  <ul id="backendSearchResults"></ul>
+</section>
+
+<!-- End backend-integrated sections -->
+
+
+<script src="script.js"></script>
+<script type="module" src="firebase.js"></script>
+</main>
+
+<div id="partModal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h3 id="modalTitle">Guitar Part</h3>
+    <div id="modalBody">Details...</div>
+    <button id="modalClose" class="modal-close">Close</button>
+  </div>
+</div>
+</body>
+</html>
