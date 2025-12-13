@@ -134,6 +134,7 @@
 <section id="auth">
   <h2>Account</h2>
   <p id="authStatus">Not signed in</p>
+  <p id="profileStatus" class="muted"></p>
 
   <div class="auth-forms">
     <form id="signupForm">
@@ -152,6 +153,12 @@
     </form>
   </div>
 
+  <div class="auth-actions">
+    <input type="email" id="resetEmail" placeholder="Email for password reset">
+    <button id="resetPasswordBtn" type="button">Send Password Reset</button>
+    <p id="resetStatus" class="muted"></p>
+  </div>
+
   <button id="logoutBtn" type="button" hidden>Log Out</button>
 </section>
 
@@ -160,13 +167,21 @@
   <input id="contactName" type="text" placeholder="Name">
   <input id="contactEmail" type="email" placeholder="Email">
   <textarea id="contactMessage" placeholder="Message"></textarea>
+  <label class="file">
+    Attach image (optional)
+    <input id="contactAttachment" type="file" accept="image/*">
+  </label>
   <button id="contactSendBtn" type="button">Send</button>
   <p id="contactStatus"></p>
 </section>
 
 <section id="myMessages" data-requires-auth>
   <h2>My Messages (from backend)</h2>
-  <button id="loadMessagesBtn" type="button">Load My Messages</button>
+  <div class="row">
+    <button id="loadMessagesBtn" type="button">Load My Messages</button>
+    <button id="realtimeToggleBtn" type="button">Enable Real-time</button>
+  </div>
+  <p id="messagesHint" class="muted"></p>
   <ul id="messagesList"></ul>
 </section>
 

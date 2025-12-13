@@ -797,3 +797,19 @@ input:focus, textarea:focus, select:focus {
     opacity: 1;
   }
 }
+
+/* ==== Backend UI (messages / auth) ==== */
+.muted{opacity:.75}
+.row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+.auth-actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:.75rem 0}
+.auth-actions input{min-width:260px}
+.search-row{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
+
+.message-item{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;background:rgba(30,41,59,.65);border:1px solid #334155;padding:.75rem;border-radius:12px;margin:.6rem 0}
+.msg-meta{font-size:.82rem;color:#94a3b8;margin-bottom:.35rem}
+.msg-text{white-space:pre-wrap}
+.msg-actions{display:flex;gap:.5rem}
+.msg-actions button{background:#0f172a;border:1px solid #334155;color:#e2e8f0;padding:.4rem .6rem;border-radius:10px;cursor:pointer}
+.msg-actions button:hover{filter:brightness(1.1)}
+.file{display:block;margin:.5rem 0;color:#cbd5e1}
+.file input{display:block;margin-top:.25rem}

@@ -1,0 +1,44 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uidField) {
+      return signedIn() && request.auth.uid == uidField;
+    }
+
+    function isAdmin() {
+      // Simple RBAC: role is stored on /users/{uid}.role
+      return signedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // User profiles
+    match /users/{uid} {
+      allow create: if signedIn() && request.auth.uid == uid;
+      allow read, update: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    // Contact messages
+    match /contactMessages/{msgId} {
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow update, delete: if signedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    // Guitar library (read for signed-in; write for admin)
+    match /guitars/{gId} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // Rate limit bucket docs (server-managed; clients can't touch)
+    match /rateLimits/{docId} {
+      allow read, write: if false;
+    }
+  }
+}
